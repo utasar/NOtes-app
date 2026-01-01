@@ -1,10 +1,30 @@
 const Note = require('../models/Note');
 const aiService = require('../services/aiService');
+const memoryStore = require('../services/memoryStore');
+const mongoose = require('mongoose');
+
+const isMongoConnected = () => mongoose.connection.readyState === 1;
 
 // Create a new note
 exports.createNote = async (req, res) => {
     try {
         const { title, content, subject, tags, category } = req.body;
+
+        if (!isMongoConnected()) {
+            const note = await memoryStore.createNote({
+                user: req.userId,
+                title,
+                content,
+                subject,
+                tags,
+                category
+            });
+
+            return res.status(201).json({
+                message: 'Note created successfully',
+                note
+            });
+        }
 
         const note = new Note({
             user: req.userId,
@@ -31,6 +51,11 @@ exports.getNotes = async (req, res) => {
     try {
         const { subject, category, search } = req.query;
         
+        if (!isMongoConnected()) {
+            const notes = await memoryStore.findNotesByUser(req.userId, { subject, category, search });
+            return res.json({ notes, count: notes.length });
+        }
+
         const query = { user: req.userId };
         
         if (subject) query.subject = subject;

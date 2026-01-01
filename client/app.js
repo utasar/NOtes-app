@@ -38,7 +38,7 @@ function hideAuthModal() {
 
 let isLoginMode = true;
 
-toggleAuth.addEventListener('click', (e) => {
+toggleAuth.addEventListener('click', function toggleAuthMode(e) {
     e.preventDefault();
     isLoginMode = !isLoginMode;
     
@@ -57,7 +57,7 @@ toggleAuth.addEventListener('click', (e) => {
     }
     
     // Re-attach event listener
-    document.getElementById('toggleAuth').addEventListener('click', arguments.callee);
+    document.getElementById('toggleAuth').addEventListener('click', toggleAuthMode);
 });
 
 authForm.addEventListener('submit', async (e) => {
