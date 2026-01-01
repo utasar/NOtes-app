@@ -4,7 +4,7 @@ module.exports = {
     port: process.env.PORT || 3000,
     nodeEnv: process.env.NODE_ENV || 'development',
     jwt: {
-        secret: process.env.JWT_SECRET || 'default-secret-change-in-production',
+        secret: process.env.JWT_SECRET || require('crypto').randomBytes(32).toString('hex'),
         expire: process.env.JWT_EXPIRE || '7d'
     },
     openai: {

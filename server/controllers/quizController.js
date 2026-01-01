@@ -99,7 +99,7 @@ exports.getQuizzes = async (req, res) => {
         if (subject) query.subject = subject;
         if (difficulty) query.difficulty = difficulty;
 
-        const quizzes = await Note.find(query)
+        const quizzes = await Quiz.find(query)
             .sort({ createdAt: -1 })
             .select('-questions');
 
