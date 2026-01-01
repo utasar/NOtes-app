@@ -4,6 +4,7 @@ const { body } = require('express-validator');
 const quizController = require('../controllers/quizController');
 const auth = require('../middleware/auth');
 const validate = require('../middleware/validate');
+const { aiLimiter } = require('../middleware/rateLimiter');
 
 // Validation
 const quizValidation = [
@@ -18,7 +19,7 @@ const quizValidation = [
 
 // Routes
 router.post('/', auth, quizValidation, quizController.createQuiz);
-router.post('/generate', auth, quizController.generateQuizFromNotes);
+router.post('/generate', auth, aiLimiter, quizController.generateQuizFromNotes);
 router.get('/', auth, quizController.getQuizzes);
 router.get('/public', quizController.getPublicQuizzes);
 router.get('/:id', auth, quizController.getQuiz);

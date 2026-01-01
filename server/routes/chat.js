@@ -4,6 +4,7 @@ const { body } = require('express-validator');
 const chatController = require('../controllers/chatController');
 const auth = require('../middleware/auth');
 const validate = require('../middleware/validate');
+const { aiLimiter } = require('../middleware/rateLimiter');
 
 // Validation
 const messageValidation = [
@@ -13,11 +14,11 @@ const messageValidation = [
     validate
 ];
 
-// Routes
+// Routes with AI rate limiting
 router.get('/history', auth, chatController.getChatHistory);
 router.post('/session', auth, chatController.createChatSession);
 router.get('/session/:id', auth, chatController.getChatSession);
-router.post('/message', auth, messageValidation, chatController.sendMessage);
+router.post('/message', auth, aiLimiter, messageValidation, chatController.sendMessage);
 router.delete('/session/:id', auth, chatController.deleteChatSession);
 
 module.exports = router;

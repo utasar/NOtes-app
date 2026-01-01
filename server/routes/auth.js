@@ -4,6 +4,7 @@ const { body } = require('express-validator');
 const authController = require('../controllers/authController');
 const auth = require('../middleware/auth');
 const validate = require('../middleware/validate');
+const { authLimiter } = require('../middleware/rateLimiter');
 
 // Validation rules
 const registerValidation = [
@@ -32,9 +33,9 @@ const loginValidation = [
     validate
 ];
 
-// Routes
-router.post('/register', registerValidation, authController.register);
-router.post('/login', loginValidation, authController.login);
+// Routes with rate limiting
+router.post('/register', authLimiter, registerValidation, authController.register);
+router.post('/login', authLimiter, loginValidation, authController.login);
 router.get('/profile', auth, authController.getProfile);
 router.put('/profile', auth, authController.updateProfile);
 

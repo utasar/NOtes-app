@@ -4,6 +4,7 @@ const { body } = require('express-validator');
 const noteController = require('../controllers/noteController');
 const auth = require('../middleware/auth');
 const validate = require('../middleware/validate');
+const { aiLimiter } = require('../middleware/rateLimiter');
 
 // Validation
 const noteValidation = [
@@ -21,10 +22,10 @@ router.get('/:id', auth, noteController.getNote);
 router.put('/:id', auth, noteController.updateNote);
 router.delete('/:id', auth, noteController.deleteNote);
 
-// AI features
-router.post('/:id/summarize', auth, noteController.summarizeNote);
-router.post('/:id/generate-questions', auth, noteController.generateQuestions);
-router.post('/:id/explain-concept', auth, noteController.explainConcept);
+// AI features with stricter rate limiting
+router.post('/:id/summarize', auth, aiLimiter, noteController.summarizeNote);
+router.post('/:id/generate-questions', auth, aiLimiter, noteController.generateQuestions);
+router.post('/:id/explain-concept', auth, aiLimiter, noteController.explainConcept);
 
 // Sharing features
 router.post('/:id/share', auth, noteController.shareNote);
