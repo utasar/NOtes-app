@@ -1,0 +1,28 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "This repository contains a **Notes Application** built with **JavaScript**, **CSS**, and **HTML**. The project demonstrates how to create a responsive and interactive note-taking web app that allows users to store, retrieve, and manage notes effectively.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^2.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.1.1",
+    "openai": "^6.15.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
