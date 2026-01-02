@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NOtes App - AI Learning Assistant</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.1/marked.min.js"></script>
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <!-- Login/Register Modal -->
+        <div id="authModal" class="modal">
+            <div class="modal-content">
+                <h2 id="authTitle">Welcome to NOtes App</h2>
+                <form id="authForm">
+                    <div id="usernameField" class="hidden">
+                        <input type="text" id="username" placeholder="Username" />
+                    </div>
+                    <div>
+                        <input type="email" id="email" placeholder="Email" required />
+                    </div>
+                    <div>
+                        <input type="password" id="password" placeholder="Password" required />
+                    </div>
+                    <button type="submit" id="authSubmit">Login</button>
+                    <p id="authSwitch">
+                        Don't have an account? <a href="#" id="toggleAuth">Register</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main App -->
+        <div id="app" class="hidden">
+            <!-- Header -->
+            <header>
+                <h1><i class="fas fa-graduation-cap"></i> NOtes App</h1>
+                <div class="header-actions">
+                    <button class="btn" id="studyAnalytics">
+                        <i class="fas fa-chart-line"></i> Analytics
+                    </button>
+                    <button class="btn" id="openChat">
+                        <i class="fas fa-comments"></i> GuiderAI
+                    </button>
+                    <button class="btn" id="marketplace">
+                        <i class="fas fa-store"></i> Marketplace
+                    </button>
+                    <button class="btn" id="profile">
+                        <i class="fas fa-user"></i> Profile
+                    </button>
+                    <button class="btn" id="logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </header>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="notes">
+                    <i class="fas fa-sticky-note"></i> Notes
+                </button>
+                <button class="tab" data-tab="quizzes">
+                    <i class="fas fa-question-circle"></i> Quizzes
+                </button>
+                <button class="tab" data-tab="study">
+                    <i class="fas fa-book-reader"></i> Study Sessions
+                </button>
+            </div>
+
+            <!-- Notes Tab -->
+            <div id="notesTab" class="tab-content active">
+                <div class="controls">
+                    <button class="add" id="add">
+                        <i class="fas fa-plus"></i> Add Note
+                    </button>
+                    <div class="filters">
+                        <input type="text" id="searchNotes" placeholder="Search notes..." />
+                        <select id="filterCategory">
+                            <option value="">All Categories</option>
+                            <option value="personal">Personal</option>
+                            <option value="study">Study</option>
+                            <option value="work">Work</option>
+                            <option value="research">Research</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="notesContainer" class="content-grid"></div>
+            </div>
+
+            <!-- Quizzes Tab -->
+            <div id="quizzesTab" class="tab-content">
+                <div class="controls">
+                    <button class="add" id="createQuiz">
+                        <i class="fas fa-plus"></i> Create Quiz
+                    </button>
+                    <button class="btn" id="generateQuiz">
+                        <i class="fas fa-robot"></i> Generate from Notes
+                    </button>
+                </div>
+                <div id="quizzesContainer" class="content-grid"></div>
+            </div>
+
+            <!-- Study Sessions Tab -->
+            <div id="studyTab" class="tab-content">
+                <div class="controls">
+                    <button class="add" id="startSession">
+                        <i class="fas fa-play"></i> Start Study Session
+                    </button>
+                </div>
+                <div id="studyContainer"></div>
+            </div>
+        </div>
+
+        <!-- Chat Modal -->
+        <div id="chatModal" class="modal hidden">
+            <div class="modal-content chat-container">
+                <div class="chat-header">
+                    <h3><i class="fas fa-robot"></i> GuiderAI</h3>
+                    <button class="close-btn" id="closeChat">&times;</button>
+                </div>
+                <div id="chatMessages" class="chat-messages"></div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Ask GuiderAI anything..." />
+                    <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
