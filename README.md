@@ -1,8 +1,8 @@
-# NOtes App - AI-Driven Learning Assistant 🎓🤖
+# NOtes App - AI-Driven Learning Assistant 
 
 Transform your learning experience with **NOtes App**, a powerful AI-driven learning assistant and notes organizer designed to help students study smarter, not harder.
 
-## 🌟 Features
+##  Features
 
 ### 1. **AI-Powered Notes Organization**
 - **Smart Summarization**: Automatically generate concise summaries of your notes
@@ -53,7 +53,7 @@ Transform your learning experience with **NOtes App**, a powerful AI-driven lear
 - **Analytics Dashboard**: Visualize your study patterns and progress
 - **Achievement Tracking**: Celebrate milestones and learning achievements
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v14 or higher)
@@ -104,7 +104,7 @@ Transform your learning experience with **NOtes App**, a powerful AI-driven lear
 6. **Access the app**
    Open your browser and navigate to `http://localhost:3000`
 
-## 📖 Usage Guide
+## Usage Guide
 
 ### Creating Your First Note
 1. Register for an account or login
@@ -136,7 +136,7 @@ Transform your learning experience with **NOtes App**, a powerful AI-driven lear
 4. Track your time and achievements
 5. End the session to update your analytics
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Backend (Node.js + Express)
 ```
@@ -166,7 +166,7 @@ client/
 - **StudySession**: Study tracking and analytics
 - **ChatHistory**: AI conversation history
 
-## 🔒 Security Features
+## Security Features
 
 - **Password Hashing**: Bcrypt encryption for user passwords
 - **JWT Authentication**: Secure token-based authentication
@@ -175,7 +175,7 @@ client/
 - **Environment Variables**: Sensitive data stored securely
 - **Data Isolation**: User data completely private and separated
 
-## 🌐 API Endpoints
+##  API Endpoints
 
 ### Authentication
 - `POST /api/auth/register` - Register new user
@@ -210,7 +210,7 @@ client/
 - `GET /api/study/analytics` - Get study analytics
 - `GET /api/study/recommendations` - AI recommendations
 
-## 🎨 Technology Stack
+##  Technology Stack
 
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB with Mongoose ODM
@@ -220,7 +220,7 @@ client/
 - **Markdown**: Marked.js for note rendering
 - **Icons**: Font Awesome
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 - [ ] Offline mode with service workers
 - [ ] Rich text editor with formatting tools
@@ -233,7 +233,7 @@ client/
 - [ ] Flashcard generation
 - [ ] Spaced repetition learning
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -243,17 +243,14 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
 
-This project is licensed under the ISC License.
-
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - OpenAI for providing the AI capabilities
 - The open-source community for amazing tools and libraries
 - All contributors and users of NOtes App
 
-## 📧 Support
+## Support
 
 For support, questions, or feedback, please open an issue on GitHub.
 
